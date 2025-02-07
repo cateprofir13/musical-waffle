@@ -17,6 +17,13 @@ def call_pets
      "#{pet}!"
     end
  
-end
+ end
+def over_capacity?
+    if @capacity >= 3
+        true
+    else
+        false
+
+    end
 end
 
