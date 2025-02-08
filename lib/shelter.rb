@@ -19,13 +19,13 @@ def call_pets
  
  end
 def over_capacity?
-    if @capacity >= 3
-        true
-    else
-        false
-
-    end
+    @pets.length > @capacity
 end
 
-### i didn't understand how to do 
-#iteration 3 without writing the class again
+
+
+ def adopt
+    pets.delete(0)
+    end
+
+ end
