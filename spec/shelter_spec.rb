@@ -57,42 +57,42 @@ RSpec.describe Shelter do
 
   
   describe 'over capacity? false' do
-  it 'checks if shelter is at over capacity' do
-    shelter = Shelter.new('Denver Animal Shelter', 3)
-    shelter.add_pet('Salem')
-    shelter.add_pet('Beethoven')
+    it 'checks if shelter is at over capacity' do
+      shelter = Shelter.new('Denver Animal Shelter', 3)
+      shelter.add_pet('Salem')
+      shelter.add_pet('Beethoven')
 
-    expect(shelter.over_capacity?).to eq(false)
+      expect(shelter.over_capacity?).to eq(false)
+    end
   end
 
-end
+  describe 'over capacity? true' do
+    it 'checks if shelter is at over capacity' do
+      shelter = Shelter.new('Denver Animal Shelter', 3)
+      shelter.add_pet('Salem')
+      shelter.add_pet('Beethoven')
+      shelter.add_pet('Spot')
+      shelter.add_pet('Jonesy')
 
-describe 'over capacity? true' do
-  it 'checks if shelter is at over capacity' do
-    shelter = Shelter.new('Denver Animal Shelter', 3)
-    shelter.add_pet('Salem')
-    shelter.add_pet('Beethoven')
-    shelter.add_pet('Spot')
-    shelter.add_pet('Jonesy')
-
-    expect(shelter.over_capacity?).to eq(true)
+      expect(shelter.over_capacity?).to eq(true)
+    end
   end
 
-end
+  describe 'adopt' do
+    it 'adopt' do
+      shelter = Shelter.new('Denver Animal Shelter', 3)
+      shelter.add_pet('Salem')
+      shelter.add_pet('Beethoven')
+      shelter.add_pet('Spot')
+      shelter.add_pet('Jonesy')
+      
+      expect(shelter.pets).to eq(['Salem','Beethoven', 'Spot', 'Jonesy'])
 
-describe 'adopt' do
-  it 'adopt' do
-    shelter = Shelter.new('Denver Animal Shelter', 3)
-    shelter.add_pet('Salem')
-    shelter.add_pet('Beethoven')
-    shelter.add_pet('Spot')
-    shelter.add_pet('Jonesy')
-    shelter.adopt
+      shelter.adopt
 
-    expect(shelter.pets).to eq(['Beethoven', 'Spot', 'Jonesy'])
-
-end
-end
+      expect(shelter.pets).to eq(['Beethoven', 'Spot', 'Jonesy'])
+    end
+  end
   
 
 end
